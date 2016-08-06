@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Psyhchic Game</title>
+</head>
+<body>
+	<div id=game>
+
+		<h1>Psychic Game</h1>
+		<h2>Guess what letter I'm thinking of</h2>
+		
+	</div>
+<script type="text/javascript">
+	//Index of Letters
+	var letters =[
+               "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o",
+               "p","q","r","s","t","u","v","w","x","y","z"
+               ];
+
+    var wins = 0;
+    var losses = 0;
+    var guessesLeft = 3;
+	var guessedletter = "";
+
+	document.onkeyup = function(event) {
+
+		var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+		var lettertoGuess = letters[Math.floor(Math.random() * letters.length)];
+
+		if (userGuess == lettertoGuess){wins++}{guessesLeft-1}
+		if (userGuess != lettertoGuess){losses++}{guessesLeft-1}
+		}
+
+
+	var html = "<p> Guess a letter from a - z. You have 2 guesses</p>" +
+	"<p>wins: " +
+	wins +
+	"</p>" +
+	"<p>losses: " +
+	losses +
+	"</p>" +
+	"<p>guesses left: "
+	guessesLeft +
+	"</p>"
+
+
+	document.querySelector('#game').innerHTML = html;
+    </script>
+</body>
+</html>
+
