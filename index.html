@@ -8,15 +8,18 @@
 
 		<h1>Psychic Game</h1>
 		<h2>Guess what letter I'm thinking of</h2>
+		<h3>Type a letter from a-z</h3>
 		
 	</div>
+
+
 <script type="text/javascript">
 	//Index of Letters
 	var letters =[
                "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o",
                "p","q","r","s","t","u","v","w","x","y","z"
                ];
-
+// jslint.com and jsbin to check javascript
     var wins = 0;
     var losses = 0;
     var guessesLeft = 3;
@@ -27,24 +30,34 @@
 		var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 		var lettertoGuess = letters[Math.floor(Math.random() * letters.length)];
 
-		if (userGuess == lettertoGuess){wins++}{guessesLeft-1}
-		if (userGuess != lettertoGuess){losses++}{guessesLeft-1}
+		if (userGuess == lettertoGuess){
+			wins++;
+		} else if (userGuess != lettertoGuess){
+			losses++
 		}
+		
+
+		{guessesLeft--}
+	
 
 
-	var html = "<p> Guess a letter from a - z. You have 2 guesses</p>" +
+	var html = "<p> Guess what letter I'm thinking of</p>" +
 	"<p>wins: " +
 	wins +
 	"</p>" +
 	"<p>losses: " +
 	losses +
 	"</p>" +
-	"<p>guesses left: "
+	"<p>guesses left: " +
 	guessesLeft +
+	"</p>" +
+	"<p>Your Guesses so far: " +
+	guessedletter +
 	"</p>"
 
 
 	document.querySelector('#game').innerHTML = html;
+}
     </script>
 </body>
 </html>
